@@ -4,383 +4,701 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpha Schools: End of 2025 Parent Letter</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        alpha: {
-                            50: '#f0f7ff',
-                            100: '#e0f0ff',
-                            500: '#3b82f6',
-                            700: '#1d4ed8',
-                            800: '#1e40af', // Primary Brand Blue
-                            900: '#0f172a', // Dark Navy
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --alpha-blue: #0000EE;
+            --alpha-light-blue: #eff4ff;
+            --alpha-text: #111111;
+            --alpha-gray-text: #444444;
+            --white: #ffffff;
+            --border-radius: 16px;
+            --spacing-section: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            color: var(--alpha-text);
+            line-height: 1.6;
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.8rem;
+            color: var(--alpha-text);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: var(--alpha-gray-text);
+        }
+
+        strong {
+            font-weight: 700;
+            color: #000;
+        }
+
+        a {
+            color: var(--alpha-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* --- Header / Cover Style --- */
+        header {
+            background-color: var(--alpha-blue);
+            color: var(--white);
+            padding: 100px 20px 80px;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Abstract decorative circle to mimic report style */
+        header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            display: inline-block;
+            border: 3px solid white;
+            padding: 10px 24px;
+        }
+
+        header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 30px 80px;
+        }
+
+        section {
+            margin-bottom: var(--spacing-section);
+            position: relative;
+        }
+
+        /* --- "Pill" Header Strategy --- */
+        .pill-wrapper {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .pill-header {
+            background-color: var(--alpha-blue);
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 100px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(0, 0, 238, 0.3);
+            display: inline-block;
+        }
+
+        /* --- Highlights & Callouts --- */
+        .callout-box {
+            background-color: var(--alpha-light-blue);
+            border-left: 8px solid var(--alpha-blue);
+            padding: 40px;
+            border-radius: 0 16px 16px 0;
+            margin: 40px 0;
+        }
+
+        .callout-box h3 {
+            color: var(--alpha-blue);
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
         
-        /* Fade In Animation Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+        .callout-box p:last-child {
+            margin-bottom: 0;
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        .error-box {
+            background-color: #fff5f5;
+            border-left: 8px solid #ff3333;
+            padding: 30px;
+            border-radius: 0 16px 16px 0;
+            margin: 30px 0;
         }
 
-        .gradient-header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+        /* --- Stats Grid --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
         }
 
         .stat-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            border: 1px solid #eef2f6;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        blockquote {
-            border-left: 4px solid #1e40af;
-            padding-left: 1rem;
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 238, 0.1);
+            border-color: var(--alpha-blue);
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--alpha-blue);
+            line-height: 1;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #555;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* --- Quotes --- */
+        .quote-block {
+            border-left: 4px solid #ddd;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .quote-text {
             font-style: italic;
-            color: #334155;
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* --- Lists --- */
+        .styled-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .styled-list li::before {
+            content: "•";
+            color: var(--alpha-blue);
+            font-weight: 800;
+            font-size: 2rem;
+            position: absolute;
+            left: 0;
+            top: -12px;
+        }
+
+        /* --- Video & Resources --- */
+        .resource-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .video-card {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 10px;
+        }
+        
+        .video-card:hover {
+            border-color: var(--alpha-blue);
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,238,0.15);
+        }
+
+        .video-thumb {
+            width: 120px;
+            height: 80px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background-image: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+        }
+
+        .play-btn-circle {
+            width: 40px;
+            height: 40px;
+            background-color: var(--alpha-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 2px solid white;
+        }
+
+        .video-info {
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        .video-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--alpha-blue);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .video-subtitle {
+            font-size: 0.9rem;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* --- Subsection Headers --- */
+        .subsection-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--alpha-text);
+            margin-top: 50px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .subsection-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 4px;
+            background-color: var(--alpha-blue);
+            margin-top: 8px;
+            border-radius: 2px;
+        }
+
+        /* --- Footer --- */
+        .signature-section {
+            background-color: var(--alpha-light-blue);
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .signature-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--alpha-blue);
+            margin-top: 10px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            header { padding: 60px 20px; }
+            header h1 { font-size: 2.5rem; }
+            .pill-header { width: 100%; text-align: center; border-radius: 12px; }
+            .pill-wrapper { display: block; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .callout-box { padding: 25px; border-left-width: 5px; }
+            .stat-number { font-size: 3rem; }
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-700 font-sans antialiased leading-relaxed">
+<body>
 
-    <!-- Header Section -->
-    <header class="gradient-header text-white py-16 px-6 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-            <i class="fa-solid fa-graduation-cap text-9xl absolute -top-10 -right-10 transform rotate-12"></i>
-        </div>
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="uppercase tracking-widest text-alpha-100 font-semibold mb-4 text-sm">Alpha Schools</div>
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 font-serif">End of 2025 Parent Letter</h1>
-            <p class="text-xl md:text-2xl text-alpha-100 font-light">A Mid-Year Reflection on Sessions 1 & 2</p>
-        </div>
+    <header>
+        <div class="logo">ALPHA SCHOOLS</div>
+        <h1>End of 2025<br>Parent Letter</h1>
+        <p>A Mid-Year Reflection on Sessions 1 & 2</p>
     </header>
 
-    <!-- Introduction -->
-    <main class="max-w-3xl mx-auto px-6 py-12">
-        <div class="reveal">
-            <p class="text-lg font-bold text-alpha-900 mb-6">Dear Parents,</p>
-            <p class="mb-6">
-                Happy New Year! As we close out the first half of our 25/26 school year, I want to check in on how we are delivering the 3 commitments, especially as we scale (we opened a dozen new campuses in 2025).
-            </p>
-            <p class="mb-6">
-                We just completed our student and parent surveys, and they give us a clear picture of where Alpha is delivering – and where we can do better. We are also entering admissions season and prospective parents want to know if they should enroll at these new campuses. Their most common question is:
-            </p>
-            <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-alpha-700 mb-8">
-                <p class="text-xl font-serif text-alpha-900 font-semibold text-center">“Can Alpha maintain quality as it scales?”</p>
-            </div>
-            <p class="mb-8">
-                And based on the data from new families and new campuses: the answer is a resounding <strong class="text-alpha-700">YES</strong>. Let’s start with the three commitments.
-            </p>
-        </div>
+    <div class="container">
 
-        <!-- Commitment #1 -->
-        <section class="mb-16 reveal">
-            <div class="flex items-center gap-4 mb-6 border-b border-slate-200 pb-4">
-                <div class="bg-alpha-100 p-3 rounded-full text-alpha-800">
-                    <i class="fa-solid fa-heart text-2xl"></i>
-                </div>
-                <h2 class="text-3xl font-bold text-alpha-900">Commitment #1: Students Love School</h2>
+        <!-- INTRO -->
+        <section>
+            <p style="font-size: 1.2rem; font-weight: 600; color: var(--alpha-text);">Dear Parents,</p>
+            <p>Happy New Year! As we close out the first half of our 25/26 school year, I want to check in on how we are delivering the 3 commitments, especially as we scale (we opened a dozen new campuses in 2025).</p>
+            <p>We just completed our student and parent surveys, and they give us a clear picture of where Alpha is delivering – and where we can do better.</p>
+            <p>We are also entering admissions season and prospective parents want to know if they should enroll at these new campuses. Their most common question is:</p>
+            
+            <div class="callout-box" style="background-color: white; border: 2px solid var(--alpha-blue); border-left: 2px solid var(--alpha-blue); text-align: center; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,238,0.08);">
+                <h3 style="color: var(--alpha-text); font-size: 1.5rem;">“Can Alpha maintain quality as it scales?”</h3>
+                <p style="font-size: 1.2rem; margin-top: 15px;">And based on the data from new families and new campuses:<br><strong style="color: var(--alpha-blue);">The answer is a resounding YES.</strong></p>
             </div>
             
-            <p class="mb-6">Here’s what families told us:</p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center stat-card border border-alpha-100">
-                    <div class="text-3xl font-bold text-alpha-700 mb-2">90%+</div>
-                    <div class="text-sm text-slate-600">Students say they love school</div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center stat-card border border-alpha-100">
-                    <div class="text-3xl font-bold text-alpha-700 mb-2">90%</div>
-                    <div class="text-sm text-slate-600">Students say, "I love my guide"</div>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm text-center stat-card border border-alpha-100">
-                    <div class="text-3xl font-bold text-alpha-700 mb-2">95%+</div>
-                    <div class="text-sm text-slate-600">Parents say guides truly connect & motivate</div>
-                </div>
-            </div>
-
-            <h3 class="font-bold text-alpha-900 mb-4">Representative Parent Comments:</h3>
-            <div class="space-y-4 mb-8">
-                <blockquote class="bg-alpha-50 p-4 rounded-r-lg">
-                    “I’ve never heard my child say he loves school before—but now he says it all the time.”
-                </blockquote>
-                <blockquote class="bg-alpha-50 p-4 rounded-r-lg">
-                    “Our kids would rather be at school than on vacation. They don’t even want breaks.”
-                </blockquote>
-            </div>
-
-            <div class="bg-slate-100 p-6 rounded-lg mb-8">
-                <h3 class="font-bold text-alpha-900 mb-3"><i class="fa-solid fa-user-check mr-2"></i>Obsessive Hiring Standards</h3>
-                <p class="text-sm mb-4">
-                    This year, we hired more than 100 new guides out of 80,000+ applicants. Our new guides are just as loved as our most experienced ones due to our <strong>Mentor Mindset</strong> and culture of high standards.
-                </p>
-            </div>
+            <p>Let’s start with the three commitments.</p>
         </section>
 
-        <!-- Commitment #2 -->
-        <section class="mb-16 reveal">
-            <div class="flex items-center gap-4 mb-6 border-b border-slate-200 pb-4">
-                <div class="bg-alpha-100 p-3 rounded-full text-alpha-800">
-                    <i class="fa-solid fa-brain text-2xl"></i>
+        <!-- COMMITMENT 1 -->
+        <section>
+            <div class="pill-wrapper">
+                <div class="pill-header">Commitment #1: Students Love School</div>
+            </div>
+            
+            <p>Here’s what families told us:</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">90%+</span>
+                    <span class="stat-label">of students say<br><strong>they love school</strong></span>
                 </div>
-                <h2 class="text-3xl font-bold text-alpha-900">Commitment #2: Learn 2× in 2 Hours</h2>
+                <div class="stat-card">
+                    <span class="stat-number">90%</span>
+                    <span class="stat-label">of students say<br><strong>“I love my guide”</strong></span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">95%+</span>
+                    <span class="stat-label">of parents say guides truly connect & motivate</span>
+                </div>
             </div>
 
-            <div class="bg-orange-50 border-l-4 border-orange-400 p-4 mb-8 text-sm text-orange-900">
-                <strong>Transparency:</strong> This is our lowest score. ⅓ of parents worry about this. However, our 3rd party testing (NWEA MAP) consistently proves these worries unfounded.
+            <p>A few representative parent comments capture this best:</p>
+            
+            <div class="quote-block">
+                <p class="quote-text">“I’ve never heard my child say he loves school before—but now he says it all the time.”</p>
+            </div>
+            <div class="quote-block">
+                <p class="quote-text">“Our kids would rather be at school than on vacation. They don’t even want breaks.”</p>
+            </div>
+            <div class="quote-block">
+                <p class="quote-text">“Our son comes home happy, with a clear sense of satisfaction from a well-balanced, inspiring day.”</p>
             </div>
 
-            <p class="mb-6">
-                Students will take the NWEA MAP test in January. We expect results to match August/September: <strong>top 1% in every subject/grade level.</strong>
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
-                <div>
-                    <h3 class="font-bold text-alpha-900 text-lg mb-3">Academic Momentum</h3>
-                    <ul class="list-disc pl-5 space-y-2 text-sm">
-                        <li><strong>120 mins:</strong> Avg daily time on academics.</li>
-                        <li><strong>Recovering Gaps:</strong> New transfers arrived avg 2.2 grade levels behind. Today, they are on track to be ahead.</li>
-                        <li><strong>College Success:</strong> Best-in-class SAT scores and recent early acceptances to Stanford.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-alpha-900 text-lg mb-3">Recognized by Nature</h3>
-                    <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
-                        <p class="text-sm italic mb-2">Alpha was featured in <strong>Nature</strong>, one of the world's most prestigious scientific journals, as a case study for successful AI integration.</p>
-                        <p class="text-xs text-slate-500">One high school student even had independent research accepted by Nature!</p>
+            <div class="resource-section" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <a href="#" class="video-card">
+                    <div class="video-thumb" style="background: #eef4ff;">
+                        <span style="font-size:24px;">📄</span>
                     </div>
+                    <div class="video-info">
+                        <span class="video-title">Read Comments</span>
+                        <span class="video-subtitle">Students loving school</span>
+                    </div>
+                </a>
+                <a href="#" class="video-card">
+                    <div class="video-thumb" style="background: #eef4ff;">
+                        <span style="font-size:24px;">🔊</span>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-title">Listen Now</span>
+                        <span class="video-subtitle">Hear it from parents</span>
+                    </div>
+                </a>
+            </div>
+
+            <h4 class="subsection-title">The Role of Guides</h4>
+            <p>This is possible because guides are the key to delivering love of school. This year, we hired more than 100 new guides out of 80,000+ applicants. What we’re seeing is simple and powerful: our new guides are just as loved as our most experienced ones.</p>
+            <p>That’s not accidental. It’s the result of:</p>
+            <ul class="styled-list">
+                <li><strong>Obsessive hiring standards</strong></li>
+                <li><strong>A shared Mentor Mindset</strong></li>
+                <li><strong>A culture that prioritizes high standards and high support</strong></li>
+            </ul>
+            <p>Love of school is not a “nice to have.” It’s the foundation that makes everything else possible.</p>
+        </section>
+
+        <!-- COMMITMENT 2 -->
+        <section>
+            <div class="pill-wrapper">
+                <div class="pill-header">Commitment #2: Learn 2× in 2 Hours</div>
+            </div>
+            
+            <p>This is our lowest score on the 3 commitments. ⅓ of our parents are worried their child isn’t learning 2x. This is a consistent worry and why we use a 3rd party test (NWEA MAP) so parents don’t have to trust us—they can look at the standardized tests. These same worries come up at this time every year and they prove unfounded.</p>
+
+            <div class="callout-box">
+                <h3>The Data Tells the Story</h3>
+                <p>Students will take the NWEA MAP test in January and we expect the results to be the same as August/September. Students are learning 2x and classes are top 1% in every subject/grade level.</p>
+                <div style="margin-top: 20px; background: white; padding: 20px; border-radius: 12px; display: inline-block;">
+                    <span style="display: block; font-weight: 700; color: #555; font-size: 0.9rem; text-transform: uppercase;">Time on Academics</span>
+                    <span style="font-size: 2.5rem; font-weight: 800; color: var(--alpha-blue); font-family: 'Montserrat';">120 MIN <span style="font-size: 1rem; color: #999;">/ DAY</span></span>
                 </div>
             </div>
 
-            <div class="space-y-8">
-                <!-- Timeback -->
-                <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-alpha-500">
-                    <h3 class="text-xl font-bold text-alpha-800 mb-2">TimeBack™ (EducationOS)</h3>
-                    <p class="text-sm mb-4">Our AI-based education operating system allows us to scale cost-effectively while improving outcomes. It uses an XP-based system rather than traditional lessons, offering granular insight into mastery.</p>
-                </div>
+            <p>In addition to overall results, here is data from new students:</p>
+            <ul class="styled-list">
+                <li>Hundreds of students transferred to Alpha this year from high-end private schools—many with A and B transcripts.</li>
+                <li>When they arrived, our assessments showed something surprising but consistent: <strong>on average, they were 2.2 grade levels behind.</strong></li>
+                <li>Today, those same students are on track to be ahead of grade level by the end of the year. (Although some need to spend an extra hour to catch up).</li>
+            </ul>
+            <p>That’s the Alpha promise in action.</p>
 
-                <!-- Alpha Tools -->
-                <div>
-                    <h3 class="text-xl font-bold text-alpha-900 mb-4">AlphaRead, AlphaWrite, and AlphaMath</h3>
-                    <p class="mb-4">Standard school has a reading/writing crisis and has stopped teaching multiplication tables. Our approach: <strong>use AI to fight AI.</strong></p>
-                    
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="bg-alpha-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-alpha-700">AlphaMath</h4>
-                            <p class="text-xs mt-1">Students using AlphaMath in 3rd grade complete 4th-grade math in half the time. 11 hours for fluency saves 30+ hours later.</p>
+            <h4 class="subsection-title">Academic Performance & Momentum</h4>
+            <p>Our Session 1 NWEA MAP results continue to be exceptional:</p>
+            <ul class="styled-list">
+                <li>All classes, subjects, and grade levels are in the <strong>top 1% nationally.</strong></li>
+                <li>Academic growth significantly outpaces other high-end private schools.</li>
+                <li>We expect our January MAP results to tell the same story.</li>
+                <li>Our SAT scores remain best-in-class, and colleges continue to respond accordingly—including two recent early acceptances to Stanford.</li>
+            </ul>
+            <div class="quote-block" style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: none; border-top: 4px solid var(--alpha-blue);">
+                <p class="quote-text" style="font-style: normal;">Alpha was featured in <strong>Nature</strong>, one of the world's most prestigious scientific journals, as a case study for successful AI integration in education.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: #666;">"One of our high school students had her independent research accepted by Nature, advancing to the pre-print stage, a remarkable achievement."</p>
+            </div>
+
+            <h4 class="subsection-title">TimeBack™ (EducationOS)</h4>
+            <p>This fall, we rolled out Alpha TimeBack™, our AI-based education operating system. TimeBack allows us to scale the Alpha model cost-effectively, maintain high quality, and improve learning outcomes. It’s built on an XP-based system, rather than a traditional lesson-based one, giving us finer-grained insight into mastery and motivation.</p>
+            
+            <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="stat-card" style="align-items: flex-start; text-align: left;">
+                    <h5 style="color: var(--alpha-blue); font-size: 1.3rem; font-weight: 800;">AlphaRead & AlphaWrite</h5>
+                    <p>Standard school has a long-form reading and writing crisis. Kids aren't reading books and they are using chatGPT to write their papers. Our approach is simple: <strong>use AI to fight AI.</strong></p>
+                    <p style="font-size: 0.9rem;">AlphaRead and AlphaWrite take students from struggling to write grammatically correct sentences to mastering sentences, paragraphs, outlines, and essays.</p>
+                </div>
+                <div class="stat-card" style="align-items: flex-start; text-align: left;">
+                    <h5 style="color: var(--alpha-blue); font-size: 1.3rem; font-weight: 800;">AlphaMath</h5>
+                    <p>Standard school has also stopped teaching multiplication tables. AlphaMath restores fluency.</p>
+                    <div style="display: flex; gap: 20px; margin-top: 10px;">
+                        <div>
+                            <span style="font-weight: 800; color: var(--alpha-blue); font-size: 1.5rem;">11 HRS</span>
+                            <br><span style="font-size: 0.8rem;">TO FLUENCY</span>
                         </div>
-                        <div class="bg-alpha-50 p-4 rounded-lg">
-                            <h4 class="font-bold text-alpha-700">AlphaWrite</h4>
-                            <p class="text-xs mt-1">Taking students from struggling with grammar to mastering essays and outlines.</p>
+                        <div>
+                            <span style="font-weight: 800; color: var(--alpha-blue); font-size: 1.5rem;">30+ HRS</span>
+                            <br><span style="font-size: 0.8rem;">SAVED</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Learning Science -->
-                <div>
-                    <h3 class="text-xl font-bold text-alpha-900 mb-3">Building an Exceptional Learning Science Team</h3>
-                    <p class="mb-4">Our team isn't here to publish papers; they are here to ensure research helps your child learn.</p>
-                    <blockquote class="text-center font-semibold text-alpha-800 text-lg py-4 border-none">
-                        "If a student isn’t learning, it is the system’s fault—not the student’s."
-                    </blockquote>
-                </div>
-            </div>
-        </section>
-
-        <!-- Commitment #3 -->
-        <section class="mb-16 reveal">
-            <div class="flex items-center gap-4 mb-6 border-b border-slate-200 pb-4">
-                <div class="bg-alpha-100 p-3 rounded-full text-alpha-800">
-                    <i class="fa-solid fa-users text-2xl"></i>
-                </div>
-                <h2 class="text-3xl font-bold text-alpha-900">Commitment #3: Learn Life Skills</h2>
-            </div>
-            
-            <p class="mb-6">Devoted to leadership, public speaking, financial literacy, grit, and hard work.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <div class="bg-alpha-800 text-white p-6 rounded-xl shadow-lg text-center stat-card">
-                    <div class="text-3xl font-bold mb-2">85%+</div>
-                    <div class="text-sm opacity-90">Impressed with life skills workshops</div>
-                </div>
-                <div class="bg-alpha-800 text-white p-6 rounded-xl shadow-lg text-center stat-card">
-                    <div class="text-3xl font-bold mb-2">85%+</div>
-                    <div class="text-sm opacity-90">Child accomplished the "impossible"</div>
-                </div>
             </div>
 
-            <blockquote class="bg-alpha-50 p-4 rounded-r-lg mb-4">
-                “Test2Pass felt like the Olympics. Life-changing for our daughter and our family.”
-            </blockquote>
-        </section>
-
-        <!-- Improvements & Feedback -->
-        <section class="mb-16 reveal">
-            <h2 class="text-2xl font-bold text-alpha-900 mb-6">Where We’re Improving</h2>
-            <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-6 space-y-4">
-                <div class="flex gap-4">
-                    <div class="min-w-[4px] bg-red-400 rounded-full"></div>
-                    <div>
-                        <h4 class="font-bold text-slate-800">Academic Transparency</h4>
-                        <p class="text-sm">We need to communicate progress better between MAP windows. Joe will host an academic talk in February.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="min-w-[4px] bg-red-400 rounded-full"></div>
-                    <div>
-                        <h4 class="font-bold text-slate-800">Wonderlab Austin Outage</h4>
-                        <p class="text-sm">We acknowledge the poor communication and Test2Pass quality issues. A strong Session 3 plan is in place.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-8">
-                <h3 class="text-lg font-bold text-alpha-900 mb-3">Our Lowest Scoring Survey Question</h3>
-                <p class="italic text-slate-600 mb-2">“Growing Alpha is one of my top priorities.”</p>
-                <p class="mb-4 text-sm">Almost 50% of new families responded 'no'. Interestingly, nearly half of parents no longer see adding classmates as a major priority after 5 months. We believe this is because their child is thriving, and they realize that at Alpha, quality of interaction matters more than just quantity.</p>
-            </div>
-        </section>
-
-        <!-- Scale & Hype -->
-        <section class="mb-16 reveal">
-            <div class="bg-gradient-to-br from-alpha-900 to-alpha-800 text-white p-8 rounded-2xl shadow-xl">
-                <h2 class="text-2xl font-bold mb-4">Why Scale Makes Alpha Better</h2>
-                <p class="mb-4 text-alpha-100">Three years ago, Principal Joe Liemandt realized generative AI would allow scaling without losing quality.</p>
-                <ul class="space-y-3 mb-6 text-sm">
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check mt-1 text-green-400"></i> The best learning scientists want to impact millions.</li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check mt-1 text-green-400"></i> Cross-campus workshops create unique experiences.</li>
-                    <li class="flex items-start gap-3"><i class="fa-solid fa-check mt-1 text-green-400"></i> Top talent wants to join a growing, nationwide school.</li>
+            <div class="callout-box">
+                <h3>Building an Exceptional Learning Science Team</h3>
+                <p>One of the most important things we’ve done is build an exceptional learning science team.</p>
+                <br>
+                <p>What makes them different is this: <strong>They are not here to publish papers. They are here to make sure research actually helps your child learn.</strong></p>
+                <br>
+                <p>Education has had a “last-mile problem” for decades: great ideas get stuck in journals. Our team exists to close that gap.</p>
+                <br>
+                <ul class="styled-list" style="margin-top: 0;">
+                    <li>We start every day with this belief: <strong>If a student isn’t learning, it is the system’s fault—not the student’s.</strong></li>
+                    <li>We look at the system—lessons, design, and motivational models—and we fix it.</li>
                 </ul>
-                <p class="font-semibold text-center border-t border-alpha-700 pt-4">We're not scaling despite quality. We're scaling because it makes quality easier to deliver.</p>
+                <p style="font-weight: 700; color: var(--alpha-blue); font-size: 1.1rem; margin-top: 20px;">We measure what matters: mastery and time.</p>
             </div>
         </section>
 
-        <!-- Hype / Videos -->
-        <section class="mb-16 reveal">
-            <h2 class="text-2xl font-bold text-alpha-900 mb-6">Living up to the Hype</h2>
-            <div class="flex flex-col md:flex-row gap-6 mb-8">
-                <div class="flex-1 bg-white p-6 rounded-lg shadow-sm border border-alpha-100">
-                    <h3 class="text-3xl font-bold text-alpha-700 mb-1">80%+</h3>
-                    <p class="text-sm font-semibold text-slate-700">New families say Alpha is exceeding expectations</p>
+        <!-- COMMITMENT 3 -->
+        <section>
+            <div class="pill-wrapper">
+                <div class="pill-header">Commitment #3: Learn Life Skills</div>
+            </div>
+            <p>Our students’ afternoons are devoted to life skills workshops that build leadership, teamwork, storytelling, public speaking, financial literacy, entrepreneurship, socialization, relationship-building, grit, and hard work.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">85%+</span>
+                    <span class="stat-label">were impressed with<br><strong>life skills workshops</strong></span>
                 </div>
-                <div class="flex-1 bg-white p-6 rounded-lg shadow-sm border border-alpha-100">
-                    <h3 class="text-3xl font-bold text-alpha-700 mb-1">85%+</h3>
-                    <p class="text-sm font-semibold text-slate-700">Families in new cities are referring friends</p>
+                <div class="stat-card">
+                    <span class="stat-number">85%+</span>
+                    <span class="stat-label">said their child<br><strong>accomplished the impossible</strong></span>
                 </div>
             </div>
 
-            <p class="mb-6 font-medium">Check out these two special videos to hear how Alpha exceeds family’s expectations:</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#" class="flex-1 group block p-4 bg-white border border-slate-200 rounded-xl hover:border-alpha-500 transition-colors">
-                    <div class="flex items-center gap-3">
-                        <div class="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-red-700 transition">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                        <div>
-                            <span class="block font-bold text-alpha-900">Living Up to the Hype</span>
-                            <span class="text-xs text-slate-500">Hear It From Parents</span>
-                        </div>
+            <p>A few parent reflections stood out:</p>
+            <div class="quote-block">
+                <p class="quote-text">“Especially Session 2—kids were truly pushing the limits of their own growth.”</p>
+            </div>
+            <div class="quote-block">
+                <p class="quote-text">“Test2Pass felt like the Olympics. Life-changing for our daughter and our family.”</p>
+            </div>
+            <div class="quote-block">
+                <p class="quote-text">“It was incredible to see what kids can do when they’re encouraged to believe in themselves.”</p>
+            </div>
+            <div class="quote-block">
+                <p class="quote-text">"The life skills are the most impressive part of Alpha in my opinion! Academics are great, but life skills are so important... I am blown away at all the incredible life skills the kids are being taught. It's amazing and beautiful."</p>
+            </div>
+
+            <div class="resource-section">
+                <a href="#" class="video-card">
+                    <div class="video-thumb" style="background: #eef4ff;">
+                        <span style="font-size:24px;">📝</span>
                     </div>
-                </a>
-                <a href="#" class="flex-1 group block p-4 bg-white border border-slate-200 rounded-xl hover:border-alpha-500 transition-colors">
-                    <div class="flex items-center gap-3">
-                        <div class="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center group-hover:bg-red-700 transition">
-                            <i class="fa-solid fa-play"></i>
-                        </div>
-                        <div>
-                            <span class="block font-bold text-alpha-900">6 to 60</span>
-                            <span class="text-xs text-slate-500">Parent Power at Alpha Miami</span>
-                        </div>
+                    <div class="video-info">
+                        <span class="video-title">Read More</span>
+                        <span class="video-subtitle">Comments on Life Skill Workshops</span>
                     </div>
                 </a>
             </div>
         </section>
 
-        <!-- Conclusion -->
-        <footer class="reveal border-t border-slate-200 pt-12 pb-24">
-            <h2 class="text-2xl font-bold text-alpha-900 mb-4">Looking Ahead to 2026</h2>
-            <p class="mb-6">
-                Our focus remains unchanged: <strong>Deliver the three commitments, relentlessly, for every child.</strong>
-            </p>
-            <p class="mb-8">
-                As a parent of two children who went through Alpha, I’ve seen firsthand how powerful this environment can be for children, and I love being able to see how it impacts yours.
-            </p>
-            <p class="mb-12">
-                Thank you for your feedback, your partnership, and the role you play in this community. We are grateful to be on this journey with your families, and we are excited for everything ahead in 2026.
-            </p>
-            
-            <div class="mt-8">
-                <p class="text-lg font-serif italic text-alpha-800">With gratitude,</p>
-                <div class="mt-4 text-2xl font-bold text-alpha-900 font-serif">MacKenzie Price</div>
-                <div class="text-sm text-slate-500 mt-1">Alpha Schools</div>
+        <!-- IMPROVEMENTS -->
+        <section>
+            <h3 class="subsection-title">Where We’re Improving</h3>
+            <p>We teach our students that the path to excellence is seeking out critical feedback. In the same way students review their mistakes—even after scoring a 95%—we look carefully at where we can improve.</p>
+            <ul class="styled-list">
+                <li>We have to do a better job at helping parents understand their student’s academic progress. Joe will be hosting an academic talk in February (more info to come—in the meantime, see September’s) and the academic team is working on improving how we share progress between MAP testing windows.</li>
+                <li>We had a major outage in Wonderlab Austin (our pre-K program), including poor communication and the quality of the Test2Pass event. I have already spent time with those parents and we have a Session 3 plan that everyone is excited about.</li>
+                <li>We had ~20 families who preferred last year’s workshops/Test2Pass to this year’s. Our Deans of Parents are going to review workshops and Test2Pass with families at the start of Session 3 so we can make sure everyone is aligned.</li>
+            </ul>
+        </section>
+
+        <!-- SURVEY QUESTION -->
+        <section>
+            <h3 class="subsection-title">Our Lowest Scoring Survey Question</h3>
+            <p>The question that got the most negative response is also the one I was most surprised by.</p>
+            <div class="error-box">
+                <p style="font-weight: 800; font-size: 1.2rem; color: #cc0000; margin-bottom: 5px;">“Growing Alpha is one of my top priorities.”</p>
+                <p>Almost 50% of new families at new campuses responded <strong>no</strong>.</p>
             </div>
-        </footer>
+            <p>When parents are choosing Alpha, school size is the top concern. But five months in, nearly half of those parents no longer see adding more classmates as a major priority.</p>
+            <p>I’m curious to learn more about this in conversations with parents. My best guess: I believe this is a function of their child thriving. School size is such a concern in standard schools for two reasons—parents equate socialization with quantity, and friends are often the only bright spot in a child’s school experience. At Alpha, we focus on quality of interaction, developing a great culture where we teach socialization and relationship-building skills, and we make sure that students have countless other things they love about school in addition to their friends.</p>
+        </section>
 
-    </main>
+        <!-- SCALE -->
+        <section>
+            <div class="callout-box" style="background-color: var(--alpha-blue); border-left: none; border-radius: 20px; color: white;">
+                <h3 style="color: white; margin-bottom: 20px;">Why Scale Makes Alpha Better</h3>
+                <p style="color: rgba(255,255,255,0.9);">Three years ago, Joe Liemandt (our principal) had the insight that generative AI would allow Alpha’s model to scale without losing quality. The result: our newest campuses match the quality of our most established ones on every metric that matters.</p>
+                <p style="color: rgba(255,255,255,0.9);">Scale also unlocks things we couldn't do small:</p>
+                <ul class="styled-list">
+                    <li style="color: white;">The best learning scientists want to work where they can impact millions, not dozens.</li>
+                    <li style="color: white;">Cross-campus workshops create experiences no single campus could offer.</li>
+                    <li style="color: white;">The best people in (and outside of) education want to join a growing, nationwide school.</li>
+                </ul>
+                <p style="font-size: 1.2rem; margin-top: 30px; color: white;"><strong>We're not scaling despite quality. We're scaling because it makes quality easier to deliver.</strong></p>
+            </div>
+        </section>
 
-    <!-- Sticky "Back to Top" Button -->
-    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="fixed bottom-6 right-6 bg-alpha-700 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 transition-opacity duration-300 hover:bg-alpha-800 pointer-events-none z-50">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
+        <!-- HYPE -->
+        <section>
+            <div class="pill-wrapper">
+                <div class="pill-header">Living Up to the Hype</div>
+            </div>
+            <p>Alpha generates a lot of hype. The real question is: are we delivering?</p>
+            <p>The answer from parents is clear:</p>
 
-    <script>
-        // Reveal on Scroll Animation
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">80%+</span>
+                    <span class="stat-label">of new families say<br><strong>Alpha is exceeding expectations</strong></span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">85%+</span>
+                    <span class="stat-label">of families in new cities are<br><strong>referring friends and family</strong></span>
+                </div>
+            </div>
 
-        window.addEventListener("scroll", reveal);
-        // Trigger once on load
-        reveal();
+            <p>Here’s what a few parents are saying about their experience with Alpha:</p>
+            <div class="quote-block">
+                <p class="quote-text">“We thought it would be GREAT, but it has far exceeded that for our family. It has been LIFE CHANGING and I don't think there has been a week that has passed that I haven't found myself in tears of utter gratitude. THANK YOU!!"</p>
+            </div>
+            <div class="quote-block">
+                <p class="quote-text">“We came in with high expectations and the experience has 100% beaten them. [Our child] is loving school and learning so much. We love the parent community. Everyone is incredibly intelligent, kind, and solution oriented.”</p>
+            </div>
+            <div class="quote-block">
+                <p class="quote-text">“Alpha School has exceeded my expectations in every way. My child is genuinely thriving, not only at school, but also in life. The guides at Alpha School have worked their magic and helped my child develop a growth mindset that she didn't have before. I believe that is foundational to her new belief in herself and her willingness to try difficult challenges. She is still herself, but she is becoming the best version of herself.”</p>
+            </div>
 
-        // Back to top button visibility
-        const backToTopBtn = document.getElementById("backToTop");
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 500) {
-                backToTopBtn.classList.remove("opacity-0", "pointer-events-none");
-            } else {
-                backToTopBtn.classList.add("opacity-0", "pointer-events-none");
-            }
-        });
-    </script>
+            <div class="resource-section" style="margin-top: 40px;">
+                <p style="font-weight: 700; color: var(--alpha-blue);">Check out these two special videos to hear how Alpha is surpassing all of the hype:</p>
+                <a href="#" class="video-card">
+                    <div class="video-thumb">
+                        <div class="play-btn-circle">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-title">Living Up to the Hype</span>
+                        <span class="video-subtitle">Hear It From Parents</span>
+                    </div>
+                </a>
+
+                <a href="#" class="video-card">
+                    <div class="video-thumb">
+                        <div class="play-btn-circle">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <span class="video-title">6 to 60: Parent Power</span>
+                        <span class="video-subtitle">at Alpha Miami</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- FOOTER / CONCLUSION -->
+        <section class="signature-section">
+            <h2 style="color: var(--alpha-blue); font-size: 2rem;">Looking Ahead to 2026</h2>
+            <p>Our focus remains unchanged:</p>
+            <p style="font-size: 1.5rem; font-weight: 800; margin: 20px 0; color: var(--alpha-text);">Deliver the three commitments, relentlessly, for every child.</p>
+            <br>
+            <p style="max-width: 600px; margin: 0 auto;">As a parent of two children who went through Alpha, I’ve seen firsthand how powerful this environment can be for children, and I love being able to see how it impacts yours.</p>
+            <p style="max-width: 600px; margin: 20px auto;">Thank you for your feedback, your partnership, and the role you play in this community. We are grateful to be on this journey with your families, and we are excited for everything ahead in 2026.</p>
+            
+            <div style="margin-top: 40px;">
+                <p>With gratitude,</p>
+                <div class="signature-name">MacKenzie Price</div>
+            </div>
+        </section>
+
+    </div>
+
 </body>
 </html>
